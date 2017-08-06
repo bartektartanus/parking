@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pl.bartek.parking.service.ParkingOperatorService;
 
 import java.time.LocalDate;
 
@@ -11,10 +12,11 @@ import java.time.LocalDate;
 @RequestMapping(path = "/operator")
 public class ParkingOperatorController {
 
+    private final ParkingOperatorService parkingOperatorService = new ParkingOperatorService();
 
     @RequestMapping("/status")
     public boolean status(@RequestParam(value="number") String number) {
-        return true;
+        return parkingOperatorService.isStarted(number);
     }
 
 
@@ -23,6 +25,6 @@ public class ParkingOperatorController {
         if(date == null){
             date = LocalDate.now();
         }
-        return "0.00 PLN";
+        return parkingOperatorService.totalMoneyForDay(date).toString();
     }
 }

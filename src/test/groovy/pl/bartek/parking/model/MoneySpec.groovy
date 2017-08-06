@@ -1,3 +1,5 @@
+package pl.bartek.parking.model
+
 import pl.bartek.parking.model.Money
 import spock.lang.Specification
 

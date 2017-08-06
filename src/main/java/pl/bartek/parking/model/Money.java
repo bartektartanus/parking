@@ -50,19 +50,12 @@ public class Money {
         return currency == money.currency;
     }
 
-    @Override
-    public int hashCode() {
-        int result = value;
-        result = 31 * result + (currency != null ? currency.hashCode() : 0);
-        return result;
-    }
-
     // in the future there might be other currencies
     enum Currency {
         PLN
     }
 
-    class MoneyOperationException extends RuntimeException{
+    static class MoneyOperationException extends RuntimeException{
         MoneyOperationException(String message) {
             super(message);
         }

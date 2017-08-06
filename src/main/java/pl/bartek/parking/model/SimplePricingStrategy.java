@@ -3,7 +3,7 @@ package pl.bartek.parking.model;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
-public class SimplePricingStrategy implements PricingStrategy {
+class SimplePricingStrategy implements PricingStrategy {
 
     private final Money firstHour;
     private final Money secondHour;
