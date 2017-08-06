@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DriverController {
 
     @RequestMapping
-    public void start(@RequestParam(name = "number") String number){
+    public void start(@RequestParam(name = "number") String number, @RequestParam(name = "type", defaultValue = "regular") String type){
 
     }
 
